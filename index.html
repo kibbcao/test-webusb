@@ -11,7 +11,7 @@
 		<script>
 			document.getElementById('test').onclick = function () {
 				navigator.usb
-					.requestDevice({ filters: [{ vendorId: 0x0483 }, { productId: 0x5743 }] })
+					.requestDevice({ filters: [{ vendorId: 0x5743 }, { productId: 0x0483 }] })
 					.then((usbDevice) => {
 						console.log('product name: ' + usbDevice.productName)
 					})
