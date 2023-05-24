@@ -18,6 +18,8 @@
 						console.log('product name: ' + usbDevice.productName)
 						return usbDevice.open()
 					})
+					.then((device) => device.selectConfiguration(1))
+					.then((device) => device.claimInterface(device.configuration.interfaces[0].interfaceNumber))
 					.then(() => {
 						// 新建一个数组缓冲区，存放要发送的数据
 						const data = new Uint8Array([0x01, 0x02, 0x03])
