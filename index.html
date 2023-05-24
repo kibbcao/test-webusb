@@ -11,7 +11,7 @@
 		<script>
 			document.getElementById('test').onclick = function () {
 				navigator.usb.getDevices().then((devices) => {
-                    console.log(devices)
+                    console.log(devices, 'sssss')
 					devices.forEach((device) => {
 						console.log(device.productName) // "Arduino Micro"
 						console.log(device.manufacturerName) // "Arduino LLC"
