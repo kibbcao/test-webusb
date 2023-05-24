@@ -10,13 +10,14 @@
 		<div class="test" id="test">测试</div>
 		<script>
 			document.getElementById('test').onclick = function () {
-				navigator.usb.getDevices().then((devices) => {
-                    console.log(devices, 'sssss')
-					devices.forEach((device) => {
-						console.log(device.productName) // "Arduino Micro"
-						console.log(device.manufacturerName) // "Arduino LLC"
+				navigator.usb
+					.requestDevice({ filters: [{ vendorId: 0x0483 }, { productId: 0x5743 }] })
+					.then((usbDevice) => {
+						console.log('product name: ' + usbDevice.productName)
 					})
-				})
+					.catch((e) => {
+						console.log('There is no devie....' + e)
+					})
 			}
 		</script>
 	</body>
@@ -30,7 +31,7 @@
 			height: 36px;
 			line-height: 36px;
 			text-align: center;
-            cursor: pointer;
+			cursor: pointer;
 		}
 	</style>
 </html>
