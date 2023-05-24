@@ -10,6 +10,7 @@
 		<div class="test" id="test">测试</div>
 		<script>
 			document.getElementById('test').onclick = function () {
+				console.log('sss')
 				navigator.usb
 					.requestDevice({ filters: [{ vendorId: 0x0483,productId: 0x5743 }] })
 					.then((usbDevice) => {
