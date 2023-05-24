@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div class="test" id="test">测试</div>
+		<script>
+			document.getElementById('test').onclick = function () {
+				navigator.usb.getDevices().then((devices) => {
+                    console.log(devices)
+					devices.forEach((device) => {
+						console.log(device.productName) // "Arduino Micro"
+						console.log(device.manufacturerName) // "Arduino LLC"
+					})
+				})
+			}
+		</script>
+	</body>
+	<style>
+		.test {
+			border-radius: 10px;
+			border: 1px solid #ccc;
+			color: #000;
+			font-size: 16px;
+			width: 100px;
+			height: 36px;
+			line-height: 36px;
+			text-align: center;
+            cursor: pointer;
+		}
+	</style>
+</html>
